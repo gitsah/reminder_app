@@ -1,1 +1,2 @@
 [![CircleCI](https://circleci.com/gh/gitsah/reminder_app.svg?style=svg)](https://circleci.com/gh/gitsah/reminder_app)
+[![codecov](https://codecov.io/gh/gitsah/reminder_app/branch/master/graph/badge.svg)](https://codecov.io/gh/gitsah/reminder_app)
