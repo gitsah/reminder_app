@@ -1,12 +1,23 @@
 package com.example.sahand.reminder_app;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity
 public class Reminder {
 
+    @PrimaryKey
     private int reminderId;
+    @ColumnInfo(name = "time")
     private String time;
+    @ColumnInfo(name = "date")
     private String date;
+    @ColumnInfo(name = "message")
     private String message;
+    @ColumnInfo(name = "snoozable")
     private boolean snoozable;
+    @ColumnInfo(name = "snooze_count")
     private int snoozeCount;
 
     public Reminder () {}
