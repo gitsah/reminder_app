@@ -67,4 +67,8 @@ public class ReminderFragment extends Fragment {
             return convertView;
         }
     }
+
+    public void setReminders(List<Reminder> reminders) {
+        this.reminders = reminders;
+    }
 }

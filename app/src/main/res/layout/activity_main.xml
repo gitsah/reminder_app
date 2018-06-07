@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/frag_holder"
         android:layout_width="486dp"
         android:layout_height="604dp"
         android:layout_marginTop="65dp"
