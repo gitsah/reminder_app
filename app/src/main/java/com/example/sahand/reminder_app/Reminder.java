@@ -91,10 +91,10 @@ public class Reminder implements Comparable<Reminder>{
         String[] time2 = reminder.time.split(":");
 
         Calendar calendar1 = new GregorianCalendar(Integer.parseInt(date1[2]), Integer.parseInt(date1[0]),
-                Integer.parseInt(date1[1]), Integer.parseInt(time1[0]), Integer.parseInt(time1[1]));
+                Integer.parseInt(date1[1]), Integer.parseInt(time1[0]), Integer.parseInt(time1[1].substring(0,2)));
 
         Calendar calendar2 = new GregorianCalendar(Integer.parseInt(date2[2]), Integer.parseInt(date2[0]),
-                Integer.parseInt(date2[1]), Integer.parseInt(time2[0]), Integer.parseInt(time2[1]));
+                Integer.parseInt(date2[1]), Integer.parseInt(time2[0]), Integer.parseInt(time2[1].substring(0,2)));
 
         return calendar1.compareTo(calendar2);
     }
