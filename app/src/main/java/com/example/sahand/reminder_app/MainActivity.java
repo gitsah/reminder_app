@@ -71,7 +71,43 @@ public class MainActivity extends AppCompatActivity {
             mainActivity.reminders = reminders;
             mainActivity.populateReminders();
         }
+    }
 
+
+    public static class DeleteReminderTask extends AsyncTask<Void, Void, List<Reminder>> {
+
+        private WeakReference<MainActivity> weakActivity;
+        private int reminderId;
+
+        DeleteReminderTask(MainActivity weakActivity, int reminderId) {
+            this.weakActivity = new WeakReference<>(weakActivity);
+            this.reminderId = reminderId;
+        }
+
+        @Override
+        protected List<Reminder> doInBackground(Void... voids) {
+            MainActivity mainActivity = weakActivity.get();
+            if (mainActivity == null) {
+                return null;
+            }
+
+            ReminderDatabase db = ReminderDatabaseSingleton.getDatabase(mainActivity);
+
+            db.reminderDao().deleteReminder(reminderId);
+            List<Reminder> reminders = db.reminderDao().getAll();
+
+            return reminders;
+        }
+
+        @Override
+        protected void onPostExecute(List<Reminder> reminders) {
+            MainActivity mainActivity = weakActivity.get();
+            if (mainActivity == null || reminders == null) {
+                return;
+            }
+            mainActivity.reminders = reminders;
+            mainActivity.populateReminders();
+        }
     }
 
     public void addReminder(View view){

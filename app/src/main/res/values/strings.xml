@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Reminder App</string>
     <string name="add_alarm">Add Reminder</string>
     <string name="thumbnail">thumbnail</string>
     <string name="time_label">Time: </string>
@@ -10,8 +10,8 @@
     <string name="date_label">Date:</string>
     <string name="not_snoozeable">Not Snoozeable</string>
     <string name="snoozeable">Snoozeable</string>
-    <string name="snooze_interval_label">Snooze Interval</string>
-    <string name="set_snooze_interval_plcaeholder">Set Snooze Interval</string>
+    <string name="snooze_limit_label">Snooze Limit</string>
+    <string name="set_snooze_limit_plcaeholder">Set Snooze Limit</string>
     <string name="add_reminder_button">Add Reminder</string>
     <string name="enter_date_plcaeholder">Enter Date</string>
     <string name="delete">delete</string>

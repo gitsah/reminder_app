@@ -90,13 +90,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/snooze_interval_label"/>
+            android:text="@string/snooze_limit_label"/>
 
         <EditText
             android:id="@+id/interval"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/set_snooze_interval_plcaeholder"
+            android:hint="@string/set_snooze_limit_plcaeholder"
             android:inputType="number"/>
 
     </LinearLayout>

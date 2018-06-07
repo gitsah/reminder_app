@@ -5,8 +5,11 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 @Entity
-public class Reminder {
+public class Reminder implements Comparable<Reminder>{
 
     @PrimaryKey(autoGenerate = true)
     private int reminderId;
@@ -78,5 +81,21 @@ public class Reminder {
 
     public void setSnoozeCount(int snoozeCount) {
         this.snoozeCount = snoozeCount;
+    }
+
+    @Override
+    public int compareTo(@NonNull Reminder reminder) {
+        String[] date1 = this.date.split("/");
+        String[] time1 = this.time.split(":");
+        String[] date2 = reminder.date.split("/");
+        String[] time2 = reminder.time.split(":");
+
+        Calendar calendar1 = new GregorianCalendar(Integer.parseInt(date1[2]), Integer.parseInt(date1[0]),
+                Integer.parseInt(date1[1]), Integer.parseInt(time1[0]), Integer.parseInt(time1[1]));
+
+        Calendar calendar2 = new GregorianCalendar(Integer.parseInt(date2[2]), Integer.parseInt(date2[0]),
+                Integer.parseInt(date2[1]), Integer.parseInt(time2[0]), Integer.parseInt(time2[1]));
+
+        return calendar1.compareTo(calendar2);
     }
 }
