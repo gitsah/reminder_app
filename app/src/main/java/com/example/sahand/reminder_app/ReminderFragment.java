@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -73,7 +74,11 @@ public class ReminderFragment extends Fragment {
                 TextView time = convertView.findViewById(R.id.reminder_list_time);
                 TextView date = convertView.findViewById(R.id.reminder_list_date);
                 TextView title = convertView.findViewById(R.id.reminder_list_title);
+                ImageView thumbnail = convertView.findViewById(R.id.reminder_list_thumbnail);
 
+                if(thumbnail != null) {
+                    thumbnail.setImageResource(R.drawable.simple_calendar_icon);
+                }
                 if (time != null) {
                     time.setText(reminder.getTime());
                 }
