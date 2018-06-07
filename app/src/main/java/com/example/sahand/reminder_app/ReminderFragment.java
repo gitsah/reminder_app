@@ -3,18 +3,18 @@ package com.example.sahand.reminder_app;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReminderFragment extends Fragment {
-
-    private ListView mListView;
 
     private List<Reminder> reminders;
 
@@ -26,19 +26,23 @@ public class ReminderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_reminder, container, false);
+        ListView mListView = (ListView) inflater.inflate(
+                R.layout.fragment_reminder, container, false);
 
-        mListView = view.findViewById(R.id.reminder_list_view);
+        ReminderAdapter adapter = new ReminderAdapter(mListView.getContext(), reminders);
+        mListView.setAdapter(adapter);
+//        mListView.setHasFixedSize(true);
+//        mListView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        return view;
+        return mListView;
     }
 
     class ReminderAdapter extends BaseAdapter {
         private Context mContext;
         private LayoutInflater mInflater;
-        private ArrayList<Reminder> mDataSource;
+        private List<Reminder> mDataSource;
 
-        public ReminderAdapter(Context context, ArrayList<Reminder> reminders) {
+        public ReminderAdapter(Context context, List<Reminder> reminders) {
             mContext = context;
             mDataSource = reminders;
             mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -63,6 +67,23 @@ public class ReminderFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             // Get view for row item
             if (convertView == null) convertView = mInflater.inflate(R.layout.list_item_reminder, parent, false);
+
+            Reminder reminder = reminders.get(position);
+            if (reminder != null) {
+                TextView time = convertView.findViewById(R.id.reminder_list_time);
+                TextView date = convertView.findViewById(R.id.reminder_list_date);
+                TextView title = convertView.findViewById(R.id.reminder_list_title);
+
+                if (time != null) {
+                    time.setText(reminder.getTime());
+                }
+                if(date != null){
+                    date.setText(reminder.getDate());
+                }
+                if(title != null){
+                    title.setText(reminder.getMessage());
+                }
+            }
 
             return convertView;
         }
