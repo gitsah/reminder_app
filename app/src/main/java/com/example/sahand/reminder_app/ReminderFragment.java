@@ -84,7 +84,6 @@ public class ReminderFragment extends Fragment {
                     title.setText(reminder.getMessage());
                 }
             }
-
             return convertView;
         }
     }
