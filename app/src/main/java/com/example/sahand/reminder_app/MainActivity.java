@@ -72,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
             mainActivity.reminders = reminders;
             mainActivity.populateReminders();
         }
+
+    }
+    public void addReminder(View view){
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        startActivity(intent);
     }
 }
 

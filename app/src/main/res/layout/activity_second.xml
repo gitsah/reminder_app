@@ -100,4 +100,11 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/addReminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_reminder_button"
+        android:onClick="add"/>
+
 </LinearLayout>
