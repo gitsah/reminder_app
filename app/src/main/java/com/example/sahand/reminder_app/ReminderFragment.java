@@ -1,5 +1,6 @@
 package com.example.sahand.reminder_app;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -33,7 +34,7 @@ public class ReminderFragment extends Fragment {
         if(reminders != null)
             Collections.sort(reminders);
 
-        ReminderAdapter adapter = new ReminderAdapter(mListView.getContext(), this, reminders);
+        ReminderAdapter adapter = new ReminderAdapter(mListView.getContext(), reminders);
         mListView.setAdapter(adapter);
 
         return mListView;
@@ -44,7 +45,7 @@ public class ReminderFragment extends Fragment {
         private LayoutInflater mInflater;
         private List<Reminder> mDataSource;
 
-        public ReminderAdapter(Context context, ReminderFragment reminderFragment, List<Reminder> reminders) {
+        public ReminderAdapter(Context context, List<Reminder> reminders) {
             mContext = context;
             mDataSource = reminders;
             mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -92,7 +93,11 @@ public class ReminderFragment extends Fragment {
                 }
                 if(delete != null){
                     delete.setOnClickListener(v -> {
-                        new MainActivity.DeleteReminderTask((MainActivity) getActivity(), reminder.getReminderId()).execute();
+                        Activity activity = getActivity();
+                        if(activity instanceof MainActivity){
+                            MainActivity mainActivity = (MainActivity) activity;
+                            new MainActivity.DeleteReminderTask(mainActivity, reminder.getReminderId()).execute();
+                        }
                     });
                 }
             }
