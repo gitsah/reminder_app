@@ -14,4 +14,5 @@
     <string name="set_snooze_interval_plcaeholder">Set Snooze Interval</string>
     <string name="add_reminder_button">Add Reminder</string>
     <string name="enter_date_plcaeholder">Enter Date</string>
+    <string name="delete">delete</string>
 </resources>
