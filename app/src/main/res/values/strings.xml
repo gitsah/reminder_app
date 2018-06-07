@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="add_alarm">Add Alarm</string>
+    <string name="thumbnail">thumbnail</string>
 </resources>
