@@ -2,4 +2,14 @@
     <string name="app_name">My Application</string>
     <string name="add_alarm">Add Alarm</string>
     <string name="thumbnail">thumbnail</string>
+    <string name="time_label">Time: </string>
+    <string name="enter_time_placeholder">Enter time</string>
+    <string name="description_label">Message: </string>
+    <string name="enter_message_placeholder">Enter Message</string>
+    <string name="snoozeable_label">Snoozeable</string>
+    <string name="date_label">Date:</string>
+    <string name="not_snoozeable">Not Snoozeable</string>
+    <string name="snoozeable">Snoozeable</string>
+    <string name="snooze_interval_label">Snooze Interval</string>
+    <string name="set_snooze_interval_plcaeholder">Set Snooze Interval</string>
 </resources>
