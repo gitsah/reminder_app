@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        new GetRemindersTask(this);
+        new GetRemindersTask(this).execute();
     }
 
     private void populateReminders() {

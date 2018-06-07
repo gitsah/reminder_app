@@ -58,6 +58,7 @@ public class SecondActivity extends Activity {
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
             }
 
         };
@@ -81,7 +82,7 @@ public class SecondActivity extends Activity {
         newReminder.setMessage(messageText.getText().toString());
         newReminder.setSnoozable(snoozeStatus);
         newReminder.setSnoozeCount(Integer.parseInt(snoozeInterval.getText().toString()));
-        new AddRemindersTask(this, newReminder);
+        new AddRemindersTask(this, newReminder).execute();
     }
 
     private static class AddRemindersTask extends AsyncTask<Void, Void, Reminder> {
@@ -110,14 +111,20 @@ public class SecondActivity extends Activity {
         @Override
         protected void onPostExecute(Reminder reminder) {
             if(reminder == null) {
-                Toast.makeText(weakActivity.get(), "Reminder added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(weakActivity.get(), "Reminder not added", Toast.LENGTH_SHORT).show();
             }
             else {
-                Toast.makeText(weakActivity.get(), "Reminder not added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(weakActivity.get(), "Reminder added", Toast.LENGTH_SHORT).show();
             }
 
 
         }
+    }
+
+    private void updateLabel() {
+        String myFormat = "MM/dd/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        dateText.setText(sdf.format(myCalendar.getTime()));
     }
 
 }

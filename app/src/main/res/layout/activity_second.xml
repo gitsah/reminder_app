@@ -41,6 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="date"
+            android:hint="@string/enter_date_plcaeholder"
             android:focusable="false"/>
 
     </LinearLayout>
