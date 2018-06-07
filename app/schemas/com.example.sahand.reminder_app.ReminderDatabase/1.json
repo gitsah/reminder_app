@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "2610840065f759c47a50bf8b47504715",
+    "identityHash": "9bc91f6df1ee7fe903347c2b3bb221a3",
     "entities": [
       {
         "tableName": "Reminder",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`reminderId` INTEGER NOT NULL, `time` TEXT, `date` TEXT, `message` TEXT, `snoozable` INTEGER NOT NULL, `snooze_count` INTEGER NOT NULL, PRIMARY KEY(`reminderId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`reminderId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `time` TEXT, `date` TEXT, `message` TEXT, `snoozable` INTEGER NOT NULL, `snooze_count` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "reminderId",
@@ -49,7 +49,7 @@
           "columnNames": [
             "reminderId"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
         "indices": [],
         "foreignKeys": []
@@ -57,7 +57,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"2610840065f759c47a50bf8b47504715\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"9bc91f6df1ee7fe903347c2b3bb221a3\")"
     ]
   }
 }

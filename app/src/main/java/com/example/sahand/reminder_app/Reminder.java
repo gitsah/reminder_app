@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 @Entity
 public class Reminder {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int reminderId;
     @ColumnInfo(name = "time")
     private String time;
