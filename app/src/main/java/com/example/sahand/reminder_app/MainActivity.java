@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -94,9 +93,13 @@ public class MainActivity extends AppCompatActivity {
             ReminderDatabase db = ReminderDatabaseSingleton.getDatabase(mainActivity);
 
             db.reminderDao().deleteReminder(reminderId);
+
             List<Reminder> reminders = db.reminderDao().getAll();
 
-            return reminders;
+            if (reminders == null) {
+                return null;
+            } else
+                return reminders;
         }
 
         @Override

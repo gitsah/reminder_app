@@ -7,14 +7,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.lang.ref.WeakReference;
-import java.util.Date;
 import java.util.Locale;
 
 public class SecondActivity extends Activity {
@@ -22,12 +19,10 @@ public class SecondActivity extends Activity {
     private EditText timeText;
     private EditText dateText;
     private EditText messageText;
-    private ToggleButton snoozeable;
     private EditText snoozeInterval;
     private boolean snoozeStatus;
 
     Calendar myCalendar = Calendar.getInstance();
-    Date todayDate = new Date();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +32,7 @@ public class SecondActivity extends Activity {
         timeText = findViewById(R.id.time);
         dateText = findViewById(R.id.date);
         messageText = findViewById(R.id.message);
-        snoozeable = findViewById(R.id.snoozeable);
+        ToggleButton snoozeable = findViewById(R.id.snoozeable);
         snoozeInterval = findViewById(R.id.interval);
 
         snoozeable.setOnCheckedChangeListener((buttonView, isChecked) -> snoozeStatus = isChecked);
@@ -70,7 +65,7 @@ public class SecondActivity extends Activity {
         private WeakReference<SecondActivity> weakActivity;
         private Reminder reminder;
 
-        public AddRemindersTask(SecondActivity secondActivity, Reminder reminder) {
+        AddRemindersTask(SecondActivity secondActivity, Reminder reminder) {
             weakActivity = new WeakReference<>(secondActivity);
             this.reminder = reminder;
         }

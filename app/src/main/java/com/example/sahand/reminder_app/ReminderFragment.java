@@ -3,6 +3,7 @@ package com.example.sahand.reminder_app;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +27,7 @@ public class ReminderFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ListView mListView = (ListView) inflater.inflate(
                 R.layout.fragment_reminder, container, false);
@@ -45,7 +46,7 @@ public class ReminderFragment extends Fragment {
         private LayoutInflater mInflater;
         private List<Reminder> mDataSource;
 
-        public ReminderAdapter(Context context, List<Reminder> reminders) {
+        ReminderAdapter(Context context, List<Reminder> reminders) {
             mContext = context;
             mDataSource = reminders;
             mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
