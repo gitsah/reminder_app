@@ -1,4 +1,4 @@
-package com.example.sahand.reminder_app;
+package com.ad340.group3.reminder_app;
 
 import android.content.Intent;
 import android.os.AsyncTask;

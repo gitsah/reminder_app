@@ -1,4 +1,4 @@
-package com.example.sahand.reminder_app;
+package com.ad340.group3.reminder_app;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;

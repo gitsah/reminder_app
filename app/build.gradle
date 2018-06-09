@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.example.sahand.reminder_app"
+        applicationId "com.ad340.group3.reminder_app"
         minSdkVersion 27
         targetSdkVersion 27
         versionCode 1

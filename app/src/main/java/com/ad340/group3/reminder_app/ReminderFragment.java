@@ -1,4 +1,4 @@
-package com.example.sahand.reminder_app;
+package com.ad340.group3.reminder_app;
 
 import android.app.Activity;
 import android.content.Context;

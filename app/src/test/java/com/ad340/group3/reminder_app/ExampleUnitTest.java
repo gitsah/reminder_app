@@ -1,4 +1,4 @@
-package com.example.sahand_admin.myapplication;
+package com.ad340.group3.reminder_app;
 
 import org.junit.Test;
 
