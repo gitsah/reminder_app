@@ -51,7 +51,7 @@ public class SecondActivity extends Activity {
 
     public void add(View view){
         if(timeText.getText().toString().length() == 0 || dateText.getText().toString().length() == 0
-                || messageText.getText().toString().length() == 0) {
+                || messageText.getText().toString().length() == 0 || snoozeInterval.getText().toString().length() == 0) {
             Toast.makeText(getApplicationContext(), "One or more fields is empty", Toast.LENGTH_SHORT).show();
             return;
         }
