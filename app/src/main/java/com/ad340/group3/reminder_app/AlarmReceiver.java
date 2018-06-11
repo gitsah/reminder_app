@@ -5,6 +5,8 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -15,11 +17,10 @@ public class AlarmReceiver extends BroadcastReceiver{
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        MediaPlayer mPlayer = MediaPlayer.create(context, Settings.System.DEFAULT_RINGTONE_URI);
+        mPlayer.start();
         String message = "Such Alarm! Much test!";
         Toast.makeText(context, message, Toast.LENGTH_LONG).show();
-//        Intent intent2 = new Intent(context, MainActivity.class);
-//        intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        context.startActivity(intent2);
     }
 
     public static void setAlarm(Context context, Reminder reminder){
@@ -33,12 +34,5 @@ public class AlarmReceiver extends BroadcastReceiver{
         if (am != null) {
             am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sender);
         }
-        System.out.println(calendar);
     }
-
-//    public static void cancelAlarm(AlarmManager am){
-//        if (am != null){
-//
-//        }
-//    }
 }

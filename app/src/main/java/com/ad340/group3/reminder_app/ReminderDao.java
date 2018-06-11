@@ -17,7 +17,4 @@ public interface ReminderDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Reminder reminder);
-
-//    @Query("SELECT * FROM Reminder WHERE reminderId LIKE :id LIMIT 1")
-//    Reminder findById(int id);
 }
