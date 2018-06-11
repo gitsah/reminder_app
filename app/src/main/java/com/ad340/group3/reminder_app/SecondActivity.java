@@ -29,11 +29,11 @@ public class SecondActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        timeText = findViewById(R.id.time);
-        dateText = findViewById(R.id.date);
-        messageText = findViewById(R.id.message);
+        timeText = findViewById(R.id.time_field);
+        dateText = findViewById(R.id.date_field);
+        messageText = findViewById(R.id.message_field);
         ToggleButton snoozeable = findViewById(R.id.snoozeable);
-        snoozeInterval = findViewById(R.id.interval);
+        snoozeInterval = findViewById(R.id.limit_field);
 
         snoozeable.setOnCheckedChangeListener((buttonView, isChecked) -> snoozeStatus = isChecked);
 
