@@ -99,10 +99,7 @@ public class SecondActivity extends Activity {
 
         @Override
         protected void onPostExecute(Reminder reminder) {
-            if(reminder == null) {
-                Toast.makeText(weakActivity.get(), "Reminder not added", Toast.LENGTH_SHORT).show();
-            }
-            else {
+            if(reminder != null) {
                 Toast.makeText(weakActivity.get(), "Reminder added", Toast.LENGTH_SHORT).show();
             }
         }
@@ -113,49 +110,6 @@ public class SecondActivity extends Activity {
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         dateText.setText(sdf.format(myCalendar.getTime()));
     }
-
-//    public int getTimeSpan(Reminder reminder){
-//        String myFormat = "MM/dd/yyyy";
-//        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-//
-//        String timeFormat = "HH:mm";
-//        SimpleDateFormat stf = new SimpleDateFormat(timeFormat);
-//
-//        currentDate = new Date();
-//        String currentDate1 = sdf.format(currentDate);
-//        String currentTime1 = stf.format(currentDate);
-//
-//        String[] date1 = currentDate1.split("/");
-//        String[] time1 = currentTime1.split(":");
-//        String[] date2 = reminder.getDate().split("/");
-//        String[] time2 = reminder.getTime().split(":");
-//
-//        int tMonth = Integer.parseInt(date1[0]);
-//        int tDay = Integer.parseInt(date1[1]);
-//        int tYear = Integer.parseInt(date1[2]);
-//        int tHour = Integer.parseInt(date1[0]);
-//        int tMinute = Integer.parseInt(date1[1]);
-//
-//        int aMonth = Integer.parseInt(date2[0]);
-//        int aDay = Integer.parseInt(date2[1]);
-//        int aYear = Integer.parseInt(date2[2]);
-//        int aHour = Integer.parseInt(date2[0]);
-//        int aMinute = Integer.parseInt(date2[1]);
-//
-//        int cMonth = Math.abs(aMonth - tMonth);
-//        int cDay = Math.abs(aDay - tDay);
-//        int cYear = Math.abs(aYear - tYear);
-//        int cHour = Math.abs(aHour - tHour);
-//        int cMinute = Math.abs(aMinute - tMinute);
-//
-//        if(cMonth == 0 && cYear == 0){
-//            int total = cMinute*60*1000 + cHour*3600*1000 + cDay*24*3600*1000;
-//            return total;
-//        }
-//        int total = 9999999;
-//
-//        return total;
-//    }
 
     public static int[] getReminderTime(Reminder reminder){
         String[] date = reminder.getDate().split("/");

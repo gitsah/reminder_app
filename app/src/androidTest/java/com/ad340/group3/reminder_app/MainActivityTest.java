@@ -22,12 +22,15 @@ public class MainActivityTest {
     @Test
     public void runThroughItAll(){
         onView(withId(R.id.add_button)).perform(click());
-        onView(withId(R.id.time_field)).perform(typeText("3:00")).perform(closeSoftKeyboard());
         onView(withId(R.id.date_field)).perform(click());
         onView(withText("OK")).perform(click());
         onView(withId(R.id.message_field)).perform(typeText("This is a reminder")).perform(closeSoftKeyboard());
         onView(withId(R.id.limit_field)).perform(typeText("4")).perform(closeSoftKeyboard());
         onView(withId(R.id.snoozeable)).perform(click());
+        onView(withId(R.id.add_reminder)).perform(click());
+        onView(withId(R.id.time_field)).perform(typeText("3:00:9")).perform(closeSoftKeyboard());
+        onView(withId(R.id.add_reminder)).perform(click());
+        onView(withId(R.id.time_field)).perform(replaceText("3:00"));
         onView(withId(R.id.add_reminder)).perform(click());
         Espresso.pressBack();
         onView(withId(R.id.delete_button)).perform(click());
