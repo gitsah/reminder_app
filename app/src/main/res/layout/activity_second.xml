@@ -14,35 +14,37 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/time_label" />
+            android:layout_height="72dp"
+            android:text="@string/time_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <EditText
             android:id="@+id/time"
-            android:layout_width="wrap_content"
+            android:layout_width="295dp"
             android:layout_height="wrap_content"
             android:hint="@string/enter_time_placeholder"
-            android:inputType="time"/>
+            android:inputType="time" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="93dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/date_label"/>
+            android:layout_height="match_parent"
+            android:text="@string/date_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <EditText
             android:id="@+id/date"
-            android:layout_width="wrap_content"
+            android:layout_width="301dp"
             android:layout_height="wrap_content"
-            android:inputType="date"
+            android:focusable="false"
             android:hint="@string/enter_date_plcaeholder"
-            android:focusable="false"/>
+            android:inputType="date" />
 
     </LinearLayout>
 
@@ -53,59 +55,64 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/description_label"/>
+            android:layout_height="79dp"
+            android:text="@string/description_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <EditText
             android:id="@+id/message"
-            android:layout_width="wrap_content"
+            android:layout_width="235dp"
             android:layout_height="wrap_content"
             android:hint="@string/enter_message_placeholder"
-            android:inputType="text"/>
+            android:inputType="text" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="82dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/snoozeable_label"/>
+            android:layout_height="match_parent"
+            android:text="@string/snoozeable_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <ToggleButton
             android:id="@+id/snoozeable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textOff="@string/not_snoozeable"
-            android:textOn="@string/snoozeable"/>
+            android:textOn="@string/snoozeable" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="88dp"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/snooze_limit_label"/>
+            android:layout_height="match_parent"
+            android:text="@string/snooze_limit_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <EditText
             android:id="@+id/interval"
-            android:layout_width="wrap_content"
+            android:layout_width="184dp"
             android:layout_height="wrap_content"
             android:hint="@string/set_snooze_limit_plcaeholder"
-            android:inputType="number"/>
+            android:inputType="number" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/addReminder"
+        style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_reminder_button"
-        android:onClick="add"/>
+        android:onClick="add"
+        android:text="@string/add_reminder_button" />
 
 </LinearLayout>
