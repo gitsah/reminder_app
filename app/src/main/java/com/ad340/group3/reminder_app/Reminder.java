@@ -26,14 +26,14 @@ public class Reminder implements Comparable<Reminder>{
 
     public Reminder () {}
 
-    public boolean snooze() {
-        if(!snoozable || snoozeCount < 1)
-            return false;
-        else {
-            snoozeCount--;
-            return true;
-        }
-    }
+//    public boolean snooze() {
+//        if(!snoozable || snoozeCount < 1)
+//            return false;
+//        else {
+//            snoozeCount--;
+//            return true;
+//        }
+//    }
 
     public int getReminderId() {
         return reminderId;
