@@ -158,15 +158,14 @@ public class SecondActivity extends Activity {
 //    }
 
     public static int[] getReminderTime(Reminder reminder){
-        String[] date2 = reminder.getDate().split("/");
-        String[] time2 = reminder.getTime().split(":");
-        int aMonth = Integer.parseInt(date2[0]);
-        int aDay = Integer.parseInt(date2[1]);
-        int aYear = Integer.parseInt(date2[2]);
-        int hour = Integer.parseInt(time2[0]);
-        int minute = Integer.parseInt(time2[1]);
-        int[] times = new int[]{aMonth, aDay, aYear, hour, minute};
-        return times;
-    }
+        String[] date = reminder.getDate().split("/");
+        String[] time = reminder.getTime().split(":");
+        int aMonth = Integer.parseInt(date[0]);
+        int aDay = Integer.parseInt(date[1]);
+        int aYear = Integer.parseInt(date[2]);
+        int hour = Integer.parseInt(time[0]);
+        int minute = Integer.parseInt(time[1]);
 
+        return new int[]{(aMonth -1), aDay, aYear, hour, minute};
+    }
 }
