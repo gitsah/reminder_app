@@ -6,8 +6,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -19,8 +19,12 @@ public class AlarmReceiver extends BroadcastReceiver{
     public void onReceive(Context context, Intent intent) {
         MediaPlayer mPlayer = MediaPlayer.create(context, Settings.System.DEFAULT_RINGTONE_URI);
         mPlayer.start();
-        String message = "Such Alarm! Much test!";
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+
+        Bundle bundle = intent.getExtras();
+        if(bundle != null) {
+            String message = bundle.getString("MESSAGE");
+            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+        }
     }
 
     public static void setAlarm(Context context, Reminder reminder){
@@ -28,6 +32,7 @@ public class AlarmReceiver extends BroadcastReceiver{
         Calendar calendar = new GregorianCalendar(times[2], times[0], times[1], times[3], times[4]);
 
         Intent intent = new Intent(context, AlarmReceiver.class);
+        intent.putExtra("MESSAGE", reminder.getMessage());
         PendingIntent sender = PendingIntent.getBroadcast(context, 0, intent, 0);
         // Get the AlarmManager service
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
